@@ -12,7 +12,7 @@ export default function LargeTextInput(props: MyProps){
        {props.title}
         </h1>
         <textarea
-            className="w-full bg-primary rounded-lg h-[500px]"
+            className="w-full bg-primaryColour rounded-lg h-[500px]"
         >
 
 
