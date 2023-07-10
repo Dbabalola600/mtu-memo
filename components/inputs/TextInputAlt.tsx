@@ -1,9 +1,9 @@
-        
+
 type TextInputProps = {
     id?: string;
     type: React.HTMLInputTypeAttribute;
     placeholder: any;
-    explacholder?: any
+    explacholder: any
     value?: string;
     errorMessage?: string;
     name: string;
@@ -13,18 +13,19 @@ type TextInputProps = {
 
 
 
-function TextInput(props: TextInputProps) {
+function TextInputAlt(props: TextInputProps) {
     return (
         <div className=" w-full">
-            <div className="form-control w-full  mx-auto">
+            <div className="form-control w-full mx-auto">
                 <label className="label">
-                    <span className="label-text text-black text-base">{props.name}</span>
+                    <span className="label-text text-black text-base">
+                        {props.name} {props.explacholder}
+                    </span>
 
                 </label>
                 <input type={props.type}
                     placeholder={props.placeholder}
-                    className="input input-bordered w-full  input-primary "
-                />
+                    className="input input-bordered w-full  input-primary " />
 
             </div>
         </div>
@@ -33,4 +34,4 @@ function TextInput(props: TextInputProps) {
 }
 
 
-export default TextInput;
+export default TextInputAlt;

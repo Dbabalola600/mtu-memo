@@ -1,14 +1,38 @@
-import Head  from "next/head";
+import Head from "next/head";
 import Footer from "../../navigation/Footer";
 import NavBar from "../../navigation/NavBar";
 import SideBar from "../../navigation/SideBar";
+import { useRouter } from "next/router";
+import { hasCookie } from "cookies-next";
+import { useEffect } from "react";
+import AdminSideBar from "../../navigation/Admin/AdminSide";
 
-export default function AdminLayout({ children }: { children?: JSX.Element }){
-     return (
+export default function AdminLayout({ children }: { children?: JSX.Element }) {
+
+    const router = useRouter()
+
+
+    function checkUser() {
+        const userCheck = hasCookie("AdminUser")
+
+        console.log(userCheck)
+
+        if (userCheck == false) {
+            router.push("/")
+        }
+    }
+
+
+
+    useEffect(() => {
+        checkUser()
+    }, [])
+
+    return (
         <div className="grid lg:min-h-screen grid-rows-header  ">
             <NavBar />
             <div className="grid md:grid-cols-sidebar ">
-                <SideBar />
+                <AdminSideBar />
                 <div
                     className=" min-h-screen px-10 py-5"
                 >

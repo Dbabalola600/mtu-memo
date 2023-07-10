@@ -1,6 +1,6 @@
 
 type MyProps = {
-    title: string
+    title: string|any
     desc?: String
 }
 

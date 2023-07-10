@@ -1,26 +1,31 @@
-type MyProps={
-    title:string
+type MyProps = {
+    title: string
 }
 
-export default function LargeTextInput(props: MyProps){
-    return(
+export default function LargeTextInput(props: MyProps) {
+
+
+    return (
         <div className="">
 
-        <h1
-        className="text-black text-3xl"
-        >
-       {props.title}
-        </h1>
-        <textarea
-            className="w-full bg-primaryColour rounded-lg h-[500px]"
-        >
-
-
-        </textarea>
+            <h1
+                className="text-black text-3xl"
+            >
+                {props.title}
+            </h1>
 
 
 
+            <textarea
+                className="w-full h-[400px] p-2 resize-y border rounded-md input input-bordered input-primary  "
+            />
 
-    </div> 
+
+
+
+
+
+
+        </div>
     )
 }
