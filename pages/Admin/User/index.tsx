@@ -84,7 +84,9 @@ export default function Index() {
                         Email: string
                         role: string,
                     }) =>
-                        <div>
+                        <div
+                        key={user._id}
+                        >
                             <UserButton
                                 UserId={user.UserId}
                                 department={user.Department}

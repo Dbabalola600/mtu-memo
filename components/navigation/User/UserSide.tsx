@@ -74,7 +74,7 @@ export default function UserSideBar() {
                         href={info.link}
                     >
                         <div
-                            className=" text-white cursor-pointer text-2xl hover:bg-white hover:text-primary rounded-lg px-3 py-5 "
+                            className=" text-white cursor-pointer text-2xl hover:bg-green-500 hover:text-primary rounded-lg px-3 py-5 "
                         >
                             {info.title}
                         </div>
@@ -93,7 +93,7 @@ export default function UserSideBar() {
                             href={info.link}
                         >
                             <div
-                                className=" text-white cursor-pointer  hover:bg-white hover:text-primary rounded-lg px-3 py-2 "
+                                className=" text-white cursor-pointer  hover:bg-green-500 hover:text-primary rounded-lg px-3 py-2 "
                             >
                                 {info.title}
                             </div>

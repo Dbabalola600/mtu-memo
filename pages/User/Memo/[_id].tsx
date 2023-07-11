@@ -58,6 +58,7 @@ export default function ExactMemo() {
                         department={memo.department}
                         sender={memo.sen}
                         date={memo.date}
+                        content={memo.content}
 
 
                     />
