@@ -13,8 +13,8 @@ export default function AdminSideBar() {
         { title: "Users", link: "/Admin/User" },
         { title: "Memos", link: "/Admin/Memos" },
 
-        { title: "Department", link: "/User/Memo/DepartmentMemo" },
-        { title: "College", link: "/User/Memo/" }
+        { title: "Department", link: "/Admin/DashBoard" },
+        { title: "College", link: "/Admin/DashBoard" }
     ]
     return (
         <div className=":h-screen  bg-primaryColour">
