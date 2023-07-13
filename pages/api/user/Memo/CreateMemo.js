@@ -66,7 +66,7 @@ export default async function NewMemo(req, res) {
 
 
 
-
+        // console.log(CollegeInbox[0]._id)
 
 
         // inbox handler
@@ -90,31 +90,32 @@ export default async function NewMemo(req, res) {
             })
 
 
+            for (let i = 0; i < MaxInbox.length; i++) {
+                //inbox handlers
+                if (college === "None") {
+                    if (department === "None") {
+                        if (role === "None") {
+                            return res.status(401).json("pick one damn")
+                        } else {
+                            for (let i = 0; i < RoleUsers.length; i++) {
+                                const here = await Inbox.findById(RoleInbox[i]._id).updateOne({ unread: [memo._id, ...RoleInbox[i].unread] })
+                            }
+                        }
 
-            //inbox handlers
-            if (college === "None") {
-                if (department === "None") {
-                    if (role === "None") {
-                        return res.status(401).json("pick one damn")
                     } else {
-                        for (let i = 0; i < RoleUsers.length; i++) {
-                            const here = await Inbox.findById(RoleInbox[i]._id).updateOne({ unread: [memo._id, ...RoleInbox[i].unread] })
+                        for (let i = 0; i < DepartmentUsers.length; i++) {
+                            const here = await Inbox.findById(DepartmentInbox[i]._id).updateOne({ unread: [memo._id, ...DepartmentInbox[i].unread] })
                         }
                     }
-
                 } else {
-                    for (let i = 0; i < DepartmentUsers.length; i++) {
-                        const here = await Inbox.findById(DepartmentInbox[i]._id).updateOne({ unread: [memo._id, ...DepartmentInbox[i].unread] })
+                    for (let i = 0; i < CollegeUsers.length; i++) {
+                        const here = await Inbox.findById(CollegeInbox[i]._id).updateOne({ unread: [memo._id, ...CollegeInbox[i].unread] })
                     }
+                    // return res.json(NewInbox)
                 }
-            } else {
-
-                for (let i = 0; i < CollegeUsers.length; i++) {
-                    const here = await Inbox.findById(CollegeInbox[i]._id).updateOne({ unread: [memo._id, ...CollegeInbox[i].unread] })
-                }
-                // return res.json(NewInbox)
+                //end of inbox handlers
             }
-            //end of inbox handlers
+
             return res.status(200).json(memo)
 
         } else {
@@ -131,31 +132,32 @@ export default async function NewMemo(req, res) {
 
             })
 
-
             //inbox handlers
-            if (college === "None") {
-                if (department === "None") {
-                    if (role === "None") {
-                        return res.status(401).json("pick one damn")
+            for (let i = 0; i < MaxInbox.length; i++) {
+                //inbox handlers
+                if (college === "None") {
+                    if (department === "None") {
+                        if (role === "None") {
+                            return res.status(401).json("pick one damn")
+                        } else {
+                            for (let i = 0; i < RoleUsers.length; i++) {
+                                const here = await Inbox.findById(RoleInbox[i]._id).updateOne({ unread: [memo._id, ...RoleInbox[i].unread] })
+                            }
+                        }
+
                     } else {
-                        for (let i = 0; i < RoleUsers.length; i++) {
-                            const here = await Inbox.findById(RoleInbox[i]._id).updateOne({ unread: [memo._id, ...RoleInbox[i].unread] })
+                        for (let i = 0; i < DepartmentUsers.length; i++) {
+                            const here = await Inbox.findById(DepartmentInbox[i]._id).updateOne({ unread: [memo._id, ...DepartmentInbox[i].unread] })
                         }
                     }
-
                 } else {
-                    for (let i = 0; i < DepartmentUsers.length; i++) {
-                        const here = await Inbox.findById(DepartmentInbox[i]._id).updateOne({ unread: [memo._id, ...DepartmentInbox[i].unread] })
+                    for (let i = 0; i < CollegeUsers.length; i++) {
+                        const here = await Inbox.findById(CollegeInbox[i]._id).updateOne({ unread: [memo._id, ...CollegeInbox[i].unread] })
                     }
+                    // return res.json(NewInbox)
                 }
-            } else {
-
-                for (let i = 0; i < CollegeUsers.length; i++) {
-                    const here = await Inbox.findById(CollegeInbox[i]._id).updateOne({ unread: [memo._id, ...CollegeInbox[i].unread] })
-                }
-                // return res.json(NewInbox)
+                //end of inbox handlers
             }
-            //end of inbox handlers
             return res.status(200).json(memo)
         }
 

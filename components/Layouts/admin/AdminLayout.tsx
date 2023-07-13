@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { hasCookie } from "cookies-next";
 import { useEffect } from "react";
 import AdminSideBar from "../../navigation/Admin/AdminSide";
+import AdminNav from "../../navigation/Admin/AdminNav";
 
 export default function AdminLayout({ children }: { children?: JSX.Element }) {
 
@@ -30,7 +31,7 @@ export default function AdminLayout({ children }: { children?: JSX.Element }) {
 
     return (
         <div className="grid lg:min-h-screen grid-rows-header  ">
-            <NavBar />
+          <AdminNav/>
             <div className="grid md:grid-cols-sidebar ">
                 <AdminSideBar />
                 <div

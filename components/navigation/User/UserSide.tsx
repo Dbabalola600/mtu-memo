@@ -12,11 +12,11 @@ export default function UserSideBar() {
 
     const Content = [
         { title: "Dashboard", link: "/User/DashBoard" },
-        { title: "Inbox 3", link: "/User/DashBoard" },
-        { title: "Memos", link: "/User/Memo" },
+        // { title: "Inbox 3", link: "/User/DashBoard" },
         {title: "Compose Memo", link:"/User/Memo/CreateMemo"},
-        {title: "Department"    , link:"/User/Memo/DeparmentMemo"},
-        {title: "College"    , link:"/User/Memo/"}
+        { title: "Memos", link: "/User/Memo" },
+        {title: "Department"    , link:"/User/Memo/DepartmentMemo"},
+        {title: "College"    , link:"/User/Memo/CollegeMemo"}
     ]
 
     return (
@@ -72,6 +72,7 @@ export default function UserSideBar() {
                 {Content.map((info, index) => (
                     <Link
                         href={info.link}
+                        key={index}
                     >
                         <div
                             className=" text-white cursor-pointer text-2xl hover:bg-green-500 hover:text-primary rounded-lg px-3 py-5 "
@@ -91,6 +92,7 @@ export default function UserSideBar() {
                     {Content.map((info, index) => (
                         <Link
                             href={info.link}
+                            key={index}
                         >
                             <div
                                 className=" text-white cursor-pointer  hover:bg-green-500 hover:text-primary rounded-lg px-3 py-2 "

@@ -64,6 +64,7 @@ export default function test() {
 
                     {Department.map((depart, index) => (
                         <Link
+                        key={index}
                             href="/"
                         >
                             <div

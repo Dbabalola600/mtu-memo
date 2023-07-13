@@ -11,7 +11,7 @@ type DashProps = {
 
 
 
-export default function UserDash2(props: DashProps) {
+export default function UserDash(props: DashProps) {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 mt-10 gap-6">
 

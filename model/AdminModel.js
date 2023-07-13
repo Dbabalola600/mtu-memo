@@ -25,6 +25,11 @@ const AdminSchema = new Schema({
       required: true,
       unique: false,
     }, 
+    email:{
+      type: String,
+      required: true,
+      unique: true,
+    },
     role: {
       type: String,
       default: 'Admin'

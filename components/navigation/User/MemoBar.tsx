@@ -31,7 +31,7 @@ export default function MemoBar(props: BarProps) {
 
 
             <div
-                className="btn btn-primary text-white text-center hover:bg-black"
+                className="btn btn-primary text-white text-center hover:bg-green-500"
                 onClick={() => router.push("/User/Memo/")}
             >
 
@@ -40,7 +40,7 @@ export default function MemoBar(props: BarProps) {
 
 
             <div
-                className="btn btn-primary text-white text-center hover:bg-black"
+                className="btn btn-primary text-white text-center hover:bg-green-500"
                 onClick={() => router.push("/User/Memo/DepartmentMemo")}
             >
 
@@ -48,15 +48,15 @@ export default function MemoBar(props: BarProps) {
             </div>
 
             <div
-                className="btn btn-primary text-white text-center hover:bg-black"
-                onClick={() => router.push("/User/Memo/CellegeMemo")}
+                className="btn btn-primary text-white text-center hover:bg-green-500"
+                onClick={() => router.push("/User/Memo/CollegeMemo")}
             >
 
                 College {"   "}  
             </div>
 
             <div
-                className="btn btn-primary text-white text-center hover:bg-black"
+                className="btn btn-primary text-white text-center hover:bg-green-500"
                 onClick={() => router.push("/User/Memo/RoleMemo")}
             >
 

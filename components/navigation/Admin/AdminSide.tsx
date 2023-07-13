@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 
 
@@ -7,7 +8,14 @@ export default function AdminSideBar() {
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
+    const Content = [
+        { title: "Dashboard", link: "/Admin/DashBoard" },
+        { title: "Users", link: "/Admin/User" },
+        { title: "Memos", link: "/Admin/Memos" },
 
+        { title: "Department", link: "/User/Memo/DepartmentMemo" },
+        { title: "College", link: "/User/Memo/" }
+    ]
     return (
         <div className=":h-screen  bg-primaryColour">
 
@@ -55,21 +63,40 @@ export default function AdminSideBar() {
             </div>
 
             <div
-                className="hidden lg:block"
+                className="hidden lg:block px-4 space-y-3"
             >
-                dashboard
+
+                {Content.map((info, index) => (
+                    <Link
+                        href={info.link}
+                        key={index}
+                    >
+                        <div
+                            className=" text-white cursor-pointer text-2xl hover:bg-green-500 hover:text-primary rounded-lg px-3 py-5 "
+                        >
+                            {info.title}
+                        </div>
+                    </Link>
+                ))}
             </div>
+
+            
             {isOpen && (
                 <nav className="flex flex-col">
-                    <a href="#" className="text-gray-300 hover:bg-gray-700 px-4 py-2">
-                        Link 1
-                    </a>
-                    <a href="#" className="text-gray-300 hover:bg-gray-700 px-4 py-2">
-                        Link 2
-                    </a>
-                    <a href="#" className="text-gray-300 hover:bg-gray-700 px-4 py-2">
-                        Link 3
-                    </a>
+
+                    {Content.map((info, index) => (
+                        <Link
+                            href={info.link}
+                            key={index}
+                        >
+                            <div
+                                className=" text-white cursor-pointer  hover:bg-green-500 hover:text-primary rounded-lg px-3 py-2 "
+                            >
+                                {info.title}
+                            </div>
+                        </Link>
+                    ))}
+
                 </nav>
             )}
         </div>

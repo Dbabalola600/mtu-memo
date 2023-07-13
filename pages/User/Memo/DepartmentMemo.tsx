@@ -4,8 +4,10 @@ import Header from "../../../components/shared/Header";
 import MemoBar from "../../../components/navigation/User/MemoBar";
 import { useEffect, useState } from "react";
 import { getCookie } from "cookies-next";
-import CollapseUnread from "../Utils/CollapseUnread";
-import CollapseRead from "../Utils/CollapseRead";
+import CollapseUnread from "../../Utils/CollapseUnread";
+import CollapseRead from "../../Utils/CollapseRead";
+import UnreadDepartment from "../../Utils/Department/UnreadDepartmental";
+import ReadDepartment from "../../Utils/Department/ReadDepartment";
 
 
 
@@ -26,28 +28,6 @@ type ReadMemo = {
 
 export default function DepartmentMemo() {
 
-    const [memos, SetMemo] = useState<ReadMemo[]>([])
-
-    const showinfo = async () => {
-
-
-        const token = getCookie("NormUser")
-        const body = {
-            id: token
-        }
-
-        const response = await fetch("/api/user/Memo/GetRead", { method: "POST", body: JSON.stringify(body) })
-            .then(res => res.json()) as ReadMemo[]
-
-        SetMemo(response)
-
-    }
-
-    useEffect(() => {
-        showinfo()
-
-    }, [])
-
 
 
 
@@ -65,7 +45,7 @@ export default function DepartmentMemo() {
                         className=" ">
                         <div
                             className="text-center text-primaryColour font-bold mx-auto md:text-7xl text-5xl">
-                          Deparments  Memo
+                            Deparments  Memo
                         </div>
                     </div>
 
@@ -93,15 +73,10 @@ export default function DepartmentMemo() {
                     />
                 </div>
 
-                <CollapseUnread />
 
+                <UnreadDepartment />
+                <ReadDepartment/>
 
-
-
-
-
-
-                <CollapseRead/>
 
             </>
 

@@ -2,10 +2,12 @@ import { getCookie } from "cookies-next"
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import Image from "next/image";
-import Empty_Memo from "../../../public/Empty_Memo.svg"
+import Image from "next/image"
+import Empty_Memo from "../../public/Empty_Memo.svg"
+import useSWR from "swr"
 
-type UnreadMemo = {
+
+type Memo = {
     _id: String,
     user: string,
     type: string,
@@ -20,28 +22,21 @@ type UnreadMemo = {
 
 }
 
+const fetcher = (url: RequestInfo | URL) => fetch(url).then((res) => res.json());
 
 
 
+export default function ALL() {
 
-
-
-
-export default function AllUnread() {
-
-    const [memos, SetMemo] = useState<UnreadMemo[]>([])
+    const [memos, SetMemo] = useState<Memo[]>([])
 
 
     const showinfo = async () => {
 
 
-        const token = getCookie("NormUser")
-        const body = {
-            id: token
-        }
 
-        const response = await fetch("/api/user/Memo/GetUnread", { method: "POST", body: JSON.stringify(body) })
-            .then(res => res.json()) as UnreadMemo[]
+        const response = await fetch("/api/admin/memo/getAll")
+            .then(res => res.json()) as Memo[]
 
         SetMemo(response)
 
@@ -52,9 +47,6 @@ export default function AllUnread() {
 
     }, [])
     return (
-
-
-
         <div className=" mt-5">
 
 
@@ -62,7 +54,7 @@ export default function AllUnread() {
                 className="text-primary text-3xl font-bold"
             >
 
-                Unread [{memos.length}]
+                All [{memos.length}]
                 <hr
                     className="w-4/12 bg-primary h-2 mt-3"
                 >
@@ -70,26 +62,13 @@ export default function AllUnread() {
             </div>
 
 
-            {memos.length > 0 ? (
-
-
+             {memos.length > 0 ? (
 
                 <div
                     className=" mt-5 border-black "
                 >
 
-                    {/* <div
-                        className="text-primary text-3xl font-bold"
-                    >
-
-                        Unread [{memos.length}]
-                        <hr
-                            className="w-4/12 bg-primary h-2 mt-3"
-                        >
-                        </hr>
-                    </div> */}
-
-                    {memos.map((
+                    {memos?.map((
                         memo: {
                             _id: String,
                             user: string,
@@ -107,11 +86,13 @@ export default function AllUnread() {
                     ) => (
 
 
-                        <div className="  text-black border-2 border-primary mt-5 mx-2 my-5">
+                        <div
+                        key={memo.user}
+                        className="  text-black border-2 border-primary mt-5 mx-2 my-5">
 
 
                             <Link
-                                href={`/User/Memo/${memo._id}`}
+                                href={`/Admin/Memo/${memo._id}`}
 
                             >
                                 <div
@@ -149,8 +130,6 @@ export default function AllUnread() {
 
 
             ) : (
-                
-
                 <div
                     className=" flex justify-center mt-5 grid-cols-1  "
                 >
@@ -164,10 +143,9 @@ export default function AllUnread() {
                     />
 
                 </div>
-            )}
+            )} 
 
 
         </div>
     )
 }
-

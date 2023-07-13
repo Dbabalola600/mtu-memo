@@ -4,10 +4,8 @@ import Header from "../../../components/shared/Header";
 import MemoBar from "../../../components/navigation/User/MemoBar";
 import { useEffect, useState } from "react";
 import { getCookie } from "cookies-next";
-
-import CollapseRead from "../../Utils/CollapseRead";
-import AllUnread from "../../Utils/AllUnread";
-import AllRead from "../../Utils/AllRead";
+import ReadCollege from "../../Utils/College/ReadCollege";
+import UnreadCollege from "../../Utils/College/UnreadCollege";
 
 
 
@@ -26,29 +24,9 @@ type ReadMemo = {
 
 }
 
-export default function Index() {
-
-    const [memos, SetMemo] = useState<ReadMemo[]>([])
-
-    const showinfo = async () => {
+export default function CollegeMemo() {
 
 
-        const token = getCookie("NormUser")
-        const body = {
-            id: token
-        }
-
-        const response = await fetch("/api/user/Memo/GetRead", { method: "POST", body: JSON.stringify(body) })
-            .then(res => res.json()) as ReadMemo[]
-
-        SetMemo(response)
-
-    }
-
-    useEffect(() => {
-        showinfo()
-
-    }, [])
 
 
 
@@ -67,7 +45,7 @@ export default function Index() {
                         className=" ">
                         <div
                             className="text-center text-primaryColour font-bold mx-auto md:text-7xl text-5xl">
-                            All  Memos
+                            College  Memo
                         </div>
                     </div>
 
@@ -95,12 +73,8 @@ export default function Index() {
                     />
                 </div>
 
-                <AllUnread />
-
-                <AllRead />
-
-
-
+                <UnreadCollege />
+                <ReadCollege />
 
 
 

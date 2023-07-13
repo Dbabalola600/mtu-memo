@@ -12,13 +12,14 @@ export default async function newUser(req, res) {
         console.log('CREATING DOCUMENT');
 
 
-        const { firstname, lastname, UserId, password, College, Department, role } = JSON.parse(req.body)
+        const { firstname, lastname, UserId, email, password, College, Department, role } = JSON.parse(req.body)
 
 
         const user = await User.create({
             firstname,
             lastname,
             UserId,
+            email,
             password,
             College,
             Department,

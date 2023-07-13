@@ -6,18 +6,13 @@ import mtulogo from "../../../public/mtulogo.png"
 import { deleteCookie, hasCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 
-const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'Team', href: '#', current: false },
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
-]
+
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function UserNav() {
+export default function AdminNav() {
 
 
     const router = useRouter()
@@ -27,10 +22,10 @@ export default function UserNav() {
 
         // setLoading(true)
 
-        const userCheck = hasCookie("NormUser")
+        const userCheck = hasCookie("AdminUser")
 
         if (userCheck == true) {
-            deleteCookie('NormUser', { path: '/', domain: 'localhost' })
+            deleteCookie('AdminUser', { path: '/', domain: 'localhost' })
 
             router.push('/')
 

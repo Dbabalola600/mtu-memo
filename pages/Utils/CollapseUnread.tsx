@@ -1,5 +1,5 @@
 import { getCookie } from "cookies-next"
-import { GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from "next"
+
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
@@ -27,7 +27,7 @@ type UnreadMemo = {
 
 
 
-export default function CollapseRead() {
+export default function CollapseUnread() {
 
     const [memos, SetMemo] = useState<UnreadMemo[]>([])
 
@@ -40,7 +40,7 @@ export default function CollapseRead() {
             id: token
         }
 
-        const response = await fetch("/api/user/Memo/GetRead", { method: "POST", body: JSON.stringify(body) })
+        const response = await fetch("/api/user/Memo/GetUnread", { method: "POST", body: JSON.stringify(body) })
             .then(res => res.json()) as UnreadMemo[]
 
         SetMemo(response)
@@ -57,7 +57,7 @@ export default function CollapseRead() {
 
 
             <div className="collapse-title bg-primaryColour text-white ">
-                Read {memos.length}
+                Unread {memos.length}
             </div>
             <div className="collapse-content bg-black text-white ">
                 {memos.length > 0 ? (
@@ -65,7 +65,7 @@ export default function CollapseRead() {
 
                         {memos.map((
                             memo: {
-                                _id: String,
+                                _id: String | any,
                                 user: string,
                                 type: string,
                                 title: string,
@@ -81,7 +81,7 @@ export default function CollapseRead() {
                         ) => (
                             <Link
                                 href={`/User/Memo/${memo._id}`}
-
+                                key={memo._id}
                             >
                                 <div
                                     className="mx-auto grid grid-cols-2  gap-x-5 pt-5 cursor-pointer "

@@ -4,6 +4,7 @@ import TextInput from "../../../components/inputs/TextInput";
 import Header from "../../../components/shared/Header";
 import { useRouter } from "next/router";
 import ErrMess from "../../../components/shared/notify/ErrMess";
+import GoodMess from "../../../components/shared/notify/GoodMess";
 
 
 
@@ -44,7 +45,7 @@ export default function CreateUser() {
         "VC",
         "DSA",
         "Dean CBAS",
-        "Dean CHMS", 
+        "Dean CHMS",
         "HOD Accounting",
         "HOD Biochemistry",
         "HOD Biological Sciences",
@@ -99,10 +100,11 @@ export default function CreateUser() {
             firstname: form.item(0).value,
             lastname: form.item(1).value,
             UserId: form.item(2).value,
-            Department: form.item(3).value,
-            College: form.item(4).value,
-            role: form.item(5).value,
-            password: form.item(6).value
+            email: form.item(3).value,
+            Department: form.item(4).value,
+            College: form.item(5).value,
+            role: form.item(6).value,
+            password: form.item(7).value
         }
 
 
@@ -111,7 +113,7 @@ export default function CreateUser() {
             .then(res => {
 
                 if (res.status === 200) {
-                    router.push("/Admin/DashBoard")
+                    router.push("/Admin/User")
                 }
                 if (res.status === 256) {
                     settoast2({ message: "", show: true })
@@ -131,7 +133,7 @@ export default function CreateUser() {
     return (
         <AdminLayout>
             <>
-              
+
 
 
                 <form
@@ -183,6 +185,19 @@ export default function CreateUser() {
                                 type="text"
                                 name="UserId"
                                 id="lastname"
+                            />
+                        </div>
+
+
+                        {/* email */}
+                        <div className="col-span-12  md:col-span-6 ">
+                            <TextInput
+
+                                placeholder="Email"
+
+                                type="email"
+                                name="Email"
+
                             />
                         </div>
 
@@ -278,8 +293,8 @@ export default function CreateUser() {
 
 
 
-                    {showtoast.show && <ErrMess title="invalid credentials specified" />}
-                    {showtoast2.show && <ErrMess title="Already exits, please login" />}
+                    {showtoast.show && <GoodMess title="Sucess" />}
+                    {/* {showtoast2.show && <ErrMess title="Already exits, please login" />} */}
 
 
 

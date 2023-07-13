@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import LoggedLayout from "../../../components/Layouts/LoggedLayout";
 import { useEffect, useState } from "react";
-import RAW from "../Utils/RAW";
-import Pdf from "../Utils/PDF";
+import RAW from "../../Utils/RAW";
+import Pdf from "../../Utils/PDF";
 
 
 
@@ -59,6 +59,7 @@ export default function ExactMemo() {
                         sender={memo.sen}
                         date={memo.date}
                         content={memo.content}
+                        college={memo.college}
 
 
                     />

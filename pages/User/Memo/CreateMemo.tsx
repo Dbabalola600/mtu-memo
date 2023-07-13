@@ -46,7 +46,7 @@ export default function CreateMemo() {
 
     const Role = [
         "None",
-        "Lecturer",
+       
         "VC",
         "DSA",
         "Dean CBAS",

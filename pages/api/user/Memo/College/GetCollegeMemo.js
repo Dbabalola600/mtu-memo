@@ -1,6 +1,6 @@
-import connectMongo from "../../../../utils/connectMongo";
-import Inbox from "../../../../model/InboxModel";
-import Memo from "../../../../model/MemoModel";
+import connectMongo from "../../../../../utils/connectMongo";
+import Inbox from "../../../../../model/InboxModel";
+import Memo from "../../../../../model/MemoModel";
 
 
 
