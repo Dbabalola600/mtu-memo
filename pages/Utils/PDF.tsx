@@ -20,7 +20,7 @@ type PdfProps = {
   base64String: string |any;
 };
 
-export function Pdf({ base64String }: PdfProps): JSX.Element {
+export default function Pdf({ base64String }: PdfProps): JSX.Element {
   return (
     <div>
       <h1>Render PDF</h1>
