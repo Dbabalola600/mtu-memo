@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import LoggedLayout from "../../../components/Layouts/LoggedLayout";
 import { useEffect, useState } from "react";
 import RAW from "../../Utils/RAW";
-import {Pdf} from "../../Utils/PDF";
+import Pdf from "../../Utils/PDF";
 
 
 
