@@ -73,7 +73,7 @@ export default function DashBoard() {
 
           <NavButton
           title='Memos'
-          uLink="/Admin/Memos/"
+          uLink="/Admin/Memo/"
           />
         </div>
 

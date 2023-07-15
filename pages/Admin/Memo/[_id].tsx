@@ -1,20 +1,10 @@
 import { useRouter } from "next/router";
-import LoggedLayout from "../../../components/Layouts/LoggedLayout";
+import AdminLayout from "../../../components/Layouts/admin/AdminLayout";
 import { useEffect, useState } from "react";
-import RAW from "../../Utils/RAW";
 import Pdf from "../../Utils/PDF";
 import { getCookie } from "cookies-next";
+import RAW from "../../Utils/RAW";
 
-
-type User = {
-    _id: string,
-    firstname: string,
-    lastname: string,
-    UserId: string,
-    College: string,
-    Department: string,
-    role: string,
-}
 
 
 type Memo = {
@@ -32,14 +22,16 @@ type Memo = {
 
 }
 
+
 export default function ExactMemo() {
     const router = useRouter()
-    const [user, setUser] = useState<User | null>(null)
+
     const [memo, SetMemo] = useState<Memo | null>(null)
 
 
+    const token = getCookie("AdminUser")
 
-    const token = getCookie("NormUser")
+
     const showinfo = async () => {
 
 
@@ -48,7 +40,7 @@ export default function ExactMemo() {
             id: ssd._id
         }
 
-        const response = await fetch("/api/user/Memo/GetMemo", { method: "POST", body: JSON.stringify(body) })
+        const response = await fetch("/api/admin/memo/GetMemo", { method: "POST", body: JSON.stringify(body) })
             .then(res => res.json()) as Memo
 
         SetMemo(response)
@@ -63,7 +55,7 @@ export default function ExactMemo() {
 
     if (memo?.type === "Raw") {
         return (
-            <LoggedLayout>
+            <AdminLayout>
                 <>
 
                     <RAW
@@ -81,11 +73,11 @@ export default function ExactMemo() {
 
 
                 </>
-            </LoggedLayout>
+            </AdminLayout>
         )
     } else {
         return (
-            <LoggedLayout>
+            <AdminLayout>
                 <>
                     <Pdf
                         base64String={memo?.content}
@@ -100,8 +92,7 @@ export default function ExactMemo() {
 
 
                 </>
-            </LoggedLayout>
+            </AdminLayout>
         )
     }
-
 }

@@ -42,6 +42,7 @@ export default function CreateUser() {
     const Role = [
         "None",
         "Lecturer",
+        "Secretary",
         "VC",
         "DSA",
         "Dean CBAS",

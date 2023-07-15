@@ -48,11 +48,26 @@ export default function UploadMemo() {
 
     const Role = [
         "None",
-
         "VC",
         "DSA",
         "Dean CBAS",
-        "Dean CHMS"
+        "Dean CHMS",
+        "HOD Accounting",
+        "HOD Biochemistry",
+        "HOD Biological Sciences",
+        "HOD Business Administration",
+        "HOD Chemistry",
+        "HOD Computer Science",
+        "HOD Economics",
+        "HOD English",
+        "HOD Industrial Relations and Personnel Management",
+        "HOD Mass Communication",
+        "HOD Mathematics",
+        "HOD Microbiology",
+        "HOD Physics",
+        "HOD Political Science",
+        "HOD Sociology",
+        "HOD Religious Studies"
     ]
 
     const handleFileChange = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -131,7 +146,7 @@ export default function UploadMemo() {
 
                 <form
                     onSubmit={create}
-                    className="w-full py-20 space-y-12  text-black text-base md:text-xl"
+                    className="w-full py-20 space-y-5  text-black text-base md:text-xl"
 
                 >
 
@@ -147,9 +162,13 @@ export default function UploadMemo() {
 
                     <div className=" w-full">
                         <div className="form-control w-full  mx-auto">
-                            <label className="label">
+                            <label >
                                 <span className="label-text text-black text-2xl">Upload</span>
-
+                                <div
+                                    className="text-sm text-gray-500 font-bold"
+                                >
+                                    only upload pdf documents
+                                </div>
                             </label>
                             <input
                                 type="file"
@@ -165,11 +184,15 @@ export default function UploadMemo() {
 
 
                     <div
-                        className="pt-5 "
+                        className="pt- "
                     >
                         <label>
                             <span className="label-text text-black text-3xl">Department</span>
-
+                            <div
+                                className="text-sm text-gray-500 font-bold"
+                            >
+                                this indicates sending a departmental wide memo
+                            </div>
                         </label>
                         <select className="select select-primary w-full ">
 
@@ -196,7 +219,11 @@ export default function UploadMemo() {
 
                         <label>
                             <span className="label-text text-black text-3xl">College</span>
-
+                            <div
+                                className="text-sm text-gray-500 font-bold"
+                            >
+                                this indicates sending a college wide memo
+                            </div>
                         </label>
                         <select className="select select-primary w-full ">
 
@@ -218,7 +245,11 @@ export default function UploadMemo() {
 
                         <label>
                             <span className="label-text text-black text-3xl">Role</span>
-
+                            <div
+                                className="text-sm text-gray-500 font-bold"
+                            >
+                                this indicates the specific staff recieving the memo
+                            </div>
                         </label>
                         <select className="select select-primary w-full ">
 
@@ -239,8 +270,8 @@ export default function UploadMemo() {
                     </div>
                     <button className="w-full btn-primary btn my-10 "
                         type="submit">
-                        {/* {isLoading ? "Loading..." : "SIGN IN"} */}
-                        SUBMIT
+                        {isLoading ? "Loading..." : "SUBMIT"}
+
                     </button>
                 </form>
 

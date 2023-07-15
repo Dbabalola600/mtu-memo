@@ -11,8 +11,7 @@ export default function AdminSideBar() {
     const Content = [
         { title: "Dashboard", link: "/Admin/DashBoard" },
         { title: "Users", link: "/Admin/User" },
-        { title: "Memos", link: "/Admin/Memos" },
-
+        { title: "Memos", link: "/Admin/Memo/" },
         { title: "Department", link: "/Admin/DashBoard" },
         { title: "College", link: "/Admin/DashBoard" }
     ]
@@ -21,7 +20,7 @@ export default function AdminSideBar() {
 
             <div className="flex justify-between items-center px-4 py-6">
 
-                <h1 className="text-white text-2xl font-bold lg:block hidden">Sidebar</h1>
+                {/* <h1 className="text-white text-2xl font-bold lg:block hidden">Sidebar</h1> */}
 
                 <button
                     className="text-white focus:outline-none lg:hidden  focus:text-white text-right  "

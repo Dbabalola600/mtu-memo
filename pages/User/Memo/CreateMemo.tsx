@@ -46,11 +46,26 @@ export default function CreateMemo() {
 
     const Role = [
         "None",
-       
         "VC",
         "DSA",
         "Dean CBAS",
-        "Dean CHMS"
+        "Dean CHMS",
+        "HOD Accounting",
+        "HOD Biochemistry",
+        "HOD Biological Sciences",
+        "HOD Business Administration",
+        "HOD Chemistry",
+        "HOD Computer Science",
+        "HOD Economics",
+        "HOD English",
+        "HOD Industrial Relations and Personnel Management",
+        "HOD Mass Communication",
+        "HOD Mathematics",
+        "HOD Microbiology",
+        "HOD Physics",
+        "HOD Political Science",
+        "HOD Sociology",
+        "HOD Religious Studies"
     ]
 
     const create: FormEventHandler<HTMLFormElement> = async (e) => {
@@ -90,7 +105,7 @@ export default function CreateMemo() {
             <>
                 <Header
                     title="New Memo"
-                    desc=" ceeate a memo or upload a document"
+                    desc=" create a memo or upload a document"
                 />
 
 
@@ -129,6 +144,11 @@ export default function CreateMemo() {
                     >
                         <label>
                             <span className="label-text text-black text-3xl">Department</span>
+                            <div
+                                className="text-sm text-gray-500 font-bold"
+                            >
+                                this indicates sending a departmental wide memo 
+                            </div>
 
                         </label>
                         <select className="select select-primary w-full ">
@@ -156,7 +176,11 @@ export default function CreateMemo() {
 
                         <label>
                             <span className="label-text text-black text-3xl">College</span>
-
+                            <div
+                                className="text-sm text-gray-500 font-bold"
+                            >
+                                this indicates sending a college wide memo
+                            </div>
                         </label>
                         <select className="select select-primary w-full ">
 
@@ -178,7 +202,11 @@ export default function CreateMemo() {
 
                         <label>
                             <span className="label-text text-black text-3xl">Role</span>
-
+                            <div
+                                className="text-sm text-gray-500 font-bold"
+                            >
+                                this indicates the specific staff recieving the memo 
+                            </div>
                         </label>
                         <select className="select select-primary w-full ">
 

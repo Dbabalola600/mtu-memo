@@ -12,7 +12,7 @@ export default function UserSideBar() {
 
     const Content = [
         { title: "Dashboard", link: "/User/DashBoard" },
-        // { title: "Inbox 3", link: "/User/DashBoard" },
+        { title: "Sent", link: "/User/Memo/Sent/" },
         {title: "Compose Memo", link:"/User/Memo/CreateMemo"},
         { title: "Memos", link: "/User/Memo" },
         {title: "Department"    , link:"/User/Memo/DepartmentMemo"},
