@@ -8,16 +8,27 @@ import RAW from "../../Utils/RAW";
 
 
 type Memo = {
-    _id: String,
-    user: string,
-    type: string,
-    title: string,
-    content: string,
-    date: string,
-    sen: string,
-    college: string,
-    department: string,
-    role: string,
+    Memo: {
+        _id: String,
+        user: string,
+        type: string,
+        title: string,
+        content: string,
+        date: string,
+        sen: string,
+        college: string,
+        department: string,
+        role: string,
+    }
+    User: {
+        _id: string,
+        firstname: string,
+        lastname: string,
+        UserId: string,
+        College: string,
+        Department: string,
+        role: string,
+    }
 
 
 }
@@ -53,21 +64,24 @@ export default function ExactMemo() {
     }, [])
 
 
-    if (memo?.type === "Raw") {
+    if (memo?.Memo.type === "Raw") {
         return (
             <AdminLayout>
                 <>
 
                     <RAW
-                        role={memo.role}
-                        title={memo.title}
-                        department={memo.department}
-                        sender={memo.sen}
-                        date={memo.date}
-                        content={memo.content}
-                        college={memo.college}
                         UserId={token}
-                        senderId={memo.user}
+                        UserDepartment={memo.User.Department}
+                        UserRole={memo.User.role}
+                        college={memo.Memo.college}
+                        content={memo.Memo.content}
+                        date={memo.Memo.date}
+                        department={memo.Memo.department}
+                        memId={memo.Memo._id}
+                        role={memo.Memo.role}
+                        sender={memo.Memo.sen}
+                        senderId={memo.Memo.user}
+                        title={memo.Memo.title}
                     />
 
 
@@ -80,13 +94,13 @@ export default function ExactMemo() {
             <AdminLayout>
                 <>
                     <Pdf
-                        base64String={memo?.content}
-                        title={memo?.title}
-                        role={memo?.role}
-                        college={memo?.college}
-                        department={memo?.department}
-                        date={memo?.date}
-                        sender={memo?.sen}
+                        base64String={memo?.Memo.content}
+                        title={memo?.Memo.title}
+                        role={memo?.Memo.role}
+                        college={memo?.Memo.college}
+                        department={memo?.Memo.department}
+                        date={memo?.Memo.date}
+                        sender={memo?.Memo.sen}
 
                     />
 
