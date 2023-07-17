@@ -78,18 +78,19 @@ export default function ExactMemo() {
                 <>
 
                     <RAW
-                        role={memo.Memo.role}
-                        title={memo.Memo.title}
-                        department={memo.Memo.department}
-                        sender={memo.Memo.sen}
-                        date={memo.Memo.date}
-                        content={memo.Memo.content}
-                        college={memo.Memo.college}
-                        UserId={token}
-                        senderId={memo.Memo.user}
-                        memId={memo.Memo._id}
-                        UserDepartment={memo.User.Department}
-                        UserRole={memo.User.role}
+                       UserId={token}
+                       UserDepartment={memo.User.Department}
+                       UserRole={memo.User.role}
+                       college={memo.Memo.college}
+                       content={memo.Memo.content}
+                       date={memo.Memo.date}
+                       department={memo.Memo.department}
+                       memId={memo.Memo._id}
+                       role={memo.Memo.role}
+                       sender={memo.Memo.sen}
+                       senderId={memo.Memo.user}
+                       title={memo.Memo.title}
+
                     />
 
 
