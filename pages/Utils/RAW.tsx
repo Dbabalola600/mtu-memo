@@ -14,8 +14,6 @@ type MyProps = {
     UserId: string | any
     senderId: any
     memId: any
-
-
     UserRole: string
     UserDepartment: string
 }
