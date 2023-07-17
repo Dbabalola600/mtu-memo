@@ -18,16 +18,27 @@ type User = {
 
 
 type Memo = {
-    _id: String,
-    user: string,
-    type: string,
-    title: string,
-    content: string,
-    date: string,
-    sen: string,
-    college: string,
-    department: string,
-    role: string,
+    Memo: {
+        _id: String,
+        user: string,
+        type: string,
+        title: string,
+        content: string,
+        date: string,
+        sen: string,
+        college: string,
+        department: string,
+        role: string,
+    }
+    User: {
+        _id: string,
+        firstname: string,
+        lastname: string,
+        UserId: string,
+        College: string,
+        Department: string,
+        role: string,
+    }
 
 
 }
@@ -61,21 +72,24 @@ export default function ExactMemo() {
     }, [])
 
 
-    if (memo?.type === "Raw") {
+    if (memo?.Memo.type === "Raw") {
         return (
             <LoggedLayout>
                 <>
 
                     <RAW
-                        role={memo.role}
-                        title={memo.title}
-                        department={memo.department}
-                        sender={memo.sen}
-                        date={memo.date}
-                        content={memo.content}
-                        college={memo.college}
+                        role={memo.Memo.role}
+                        title={memo.Memo.title}
+                        department={memo.Memo.department}
+                        sender={memo.Memo.sen}
+                        date={memo.Memo.date}
+                        content={memo.Memo.content}
+                        college={memo.Memo.college}
                         UserId={token}
-                        senderId={memo.user}
+                        senderId={memo.Memo.user}
+                        memId={memo.Memo._id}
+                        UserDepartment={memo.User.Department}
+                        UserRole={memo.User.role}
                     />
 
 
@@ -88,13 +102,13 @@ export default function ExactMemo() {
             <LoggedLayout>
                 <>
                     <Pdf
-                        base64String={memo?.content}
-                        title={memo?.title}
-                        role={memo?.role}
-                        college={memo?.college}
-                        department={memo?.department}
-                        date={memo?.date}
-                        sender={memo?.sen}
+                        base64String={memo?.Memo.content}
+                        title={memo?.Memo.title}
+                        role={memo?.Memo.role}
+                        college={memo?.Memo.college}
+                        department={memo?.Memo.department}
+                        date={memo?.Memo.date}
+                        sender={memo?.Memo.sen}
 
                     />
 

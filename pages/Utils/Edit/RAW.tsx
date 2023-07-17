@@ -1,5 +1,6 @@
-import { memo } from "react"
-import NavButton from "../../components/navigation/NavButton"
+
+import NavButton from "../../../components/navigation/NavButton"
+
 
 
 
@@ -14,10 +15,6 @@ type MyProps = {
     UserId: string | any
     senderId: any
     memId: any
-
-
-    UserRole: string
-    UserDepartment: string
 }
 
 
@@ -28,7 +25,7 @@ export default function Raw(props: MyProps) {
             {props.UserId === props.senderId ? (
 
                 <div
-                // className="grid grid-cols-2 space-x-2 mt-5"
+                    // className="grid grid-cols-2 space-x-2 mt-5"
                 >
                     <NavButton
                         title="Edit"
@@ -57,29 +54,10 @@ export default function Raw(props: MyProps) {
                     className="text-center text-black lg:text-2xl text-xl mt-2"
                 >
                     MOUNTAIN TOP UNIVERSITY
-
-
-                    {props.UserRole === "Lecturer" ?(
-                        <div>
-                            <div>
-                                <div>
-                                Deparment of {props.UserDepartment}
-
-                                </div>
-                            </div>
-                        </div>
-                    ) :   (
-                        <div>
-                            <div>
-                                Office of {props.UserRole}
-                            </div>
-                        </div>
-                    )}
-
-                    {/* <div>
+                    <div>
 
                         Department of {props.department}
-                    </div> */}
+                    </div>
 
 
 

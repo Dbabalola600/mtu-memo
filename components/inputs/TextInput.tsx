@@ -18,7 +18,7 @@ function TextInput(props: TextInputProps) {
         <div className=" w-full">
             <div className="form-control w-full  mx-auto">
                 <label className="label">
-                    <span className="label-text text-black text-base">{props.name}</span>
+                    <span className="label-text text-black text-2xl ">{props.name}</span>
 
                 </label>
                 <input type={props.type}
