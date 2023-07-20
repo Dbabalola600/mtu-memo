@@ -60,6 +60,7 @@ export default function DashBoard() {
           name={`${user?.firstname}  ${user?.lastname}`}
           College="ICT"
           Deparmtent={user?.role}
+          Role={user?.role}
         />
 
         <div
