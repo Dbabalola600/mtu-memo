@@ -78,6 +78,7 @@ export default function DashBoard() {
                     name={`${user?.firstname}  ${user?.lastname}`}
                     College={user?.College}
                     Deparmtent={user?.Department}
+                    Role={user?.role}
                 />
 
 

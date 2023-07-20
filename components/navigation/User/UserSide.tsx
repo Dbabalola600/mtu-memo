@@ -16,7 +16,8 @@ export default function UserSideBar() {
         {title: "Compose Memo", link:"/User/Memo/CreateMemo"},
         { title: "Memos", link: "/User/Memo" },
         {title: "Department"    , link:"/User/Memo/DepartmentMemo"},
-        {title: "College"    , link:"/User/Memo/CollegeMemo"}
+        {title: "College"    , link:"/User/Memo/CollegeMemo"},
+        {title: "Personal", link:"/User/Memo/PersonalMemo"}
     ]
 
     return (

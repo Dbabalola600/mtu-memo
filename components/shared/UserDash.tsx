@@ -5,7 +5,8 @@ type DashProps = {
     name: string | any;
     AccId: string | any;
     Deparmtent: String | any
-    College: String|any
+    College: String | any
+    Role: string | any
 
 }
 
@@ -15,8 +16,8 @@ export default function UserDash(props: DashProps) {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 mt-10 gap-6">
 
-            <div 
-            className=" grid grid-cols-2 lg:grid-cols-1 rounded-lg   lg:text-3xl  text-lg  ">
+            <div
+                className=" grid grid-cols-2 lg:grid-cols-1 rounded-lg   lg:text-3xl  text-lg  ">
 
                 <div className="text-primary lg:text-3xl  text-lg">
                     Welcome {props.name}{"  "}
@@ -25,7 +26,7 @@ export default function UserDash(props: DashProps) {
                 <div
                     className="text-primary text-right lg:text-left"
                 >
-                  UserId:  {props.AccId}
+                    UserId:  {props.AccId}
                 </div>
             </div>
 
@@ -41,14 +42,16 @@ export default function UserDash(props: DashProps) {
 
 
                     <div className="text-white   font-bold  text-xl">
-                        {props.College}
+                        {/* {props.College} */}
+
+                        {props.Deparmtent}
                     </div>
 
                     <div
                         className="text-gray-400 text-right lg:text-left"
                     >
+                        {props.Role}
 
-                        {props.Deparmtent}
                     </div>
                 </div>
                 {/* </div> */}

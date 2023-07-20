@@ -63,7 +63,7 @@ export default function DashBoard() {
         />
 
         <div
-          className="mt-10"
+          className="mt-10 space-y-10"
         >
 
           <NavButton
@@ -72,8 +72,12 @@ export default function DashBoard() {
           />
 
           <NavButton
-          title='Memos'
-          uLink="/Admin/Memo/"
+            title='Admins'
+            uLink="/Admin/admin/"
+          />
+          <NavButton
+            title='Memos'
+            uLink="/Admin/Memo/"
           />
         </div>
 

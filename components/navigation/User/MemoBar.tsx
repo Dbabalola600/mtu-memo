@@ -57,7 +57,7 @@ export default function MemoBar(props: BarProps) {
 
             <div
                 className="btn btn-primary text-white text-center hover:bg-green-500"
-                onClick={() => router.push("/User/Memo/RoleMemo")}
+                onClick={() => router.push("/User/Memo/PersonalMemo")}
             >
 
                 Personal {"   "}  
