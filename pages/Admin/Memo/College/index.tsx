@@ -56,9 +56,11 @@ export default function College(){
                         All {"   "}
                     </div>
                     {college.map((
-                        depart
+                        depart, index
                     ) => (
-                        <div>
+                        <div
+                        key={index}
+                        >
                            <Link
                                 href={`/Admin/Memo/College/${depart}`}
 

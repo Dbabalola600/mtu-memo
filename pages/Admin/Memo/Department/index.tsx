@@ -53,9 +53,11 @@ export default function Department() {
                         All {"   "}
                     </div>
                     {department.map((
-                        depart
+                        depart, index
                     ) => (
-                        <div>
+                        <div
+                        key={index}
+                        >
                            <Link
                                 href={`/Admin/Memo/Department/${depart}`}
 
