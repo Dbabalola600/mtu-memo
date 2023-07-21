@@ -59,7 +59,7 @@ export default function DashBoard() {
           AccId={user?.AdminId}
           name={`${user?.firstname}  ${user?.lastname}`}
           College="ICT"
-          Deparmtent={user?.role}
+          Deparmtent={"ICT"}
           Role={user?.role}
         />
 

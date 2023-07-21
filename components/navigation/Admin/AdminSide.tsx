@@ -12,8 +12,8 @@ export default function AdminSideBar() {
         { title: "Dashboard", link: "/Admin/DashBoard" },
         { title: "Users", link: "/Admin/User" },
         { title: "Memos", link: "/Admin/Memo/" },
-        { title: "Department", link: "/Admin/DashBoard" },
-        { title: "College", link: "/Admin/DashBoard" }
+        { title: "Department", link: "/Admin/Memo/Department/" },
+        { title: "College", link: "/Admin/Memo/College/" }
     ]
     return (
         <div className=":h-screen  bg-primaryColour">

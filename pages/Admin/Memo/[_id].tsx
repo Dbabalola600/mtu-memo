@@ -55,7 +55,7 @@ export default function ExactMemo() {
             .then(res => res.json()) as Memo
 
         SetMemo(response)
-
+     
     }
 
     useEffect(() => {

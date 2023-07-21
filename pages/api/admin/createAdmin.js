@@ -4,15 +4,24 @@ import Inbox from "../../../model/InboxModel"
 
 
 export default async function NewAdmin(req,res){
-    try{
+    if(req.method === "POST"){
         console.log("CONNECTING TO MONGO")
         await connectMongo();
         console.log("CONNECTED TO MONGO")
         console.log("CREATING ADMIN")
 
+        const { firstname, lastname, AdminId, email, password, role } = JSON.parse(req.body)
 
 
-        const admin = await Admin.create(req.body)
+
+        const admin = await Admin.create({
+            firstname: firstname,
+            lastname: lastname,
+            AdminId: AdminId,
+            email: email,
+            password: password,
+            role: "Admin"
+        })
 
         if (admin._id === undefined) {
             return res.status(401).json("couldn't create")
@@ -26,7 +35,7 @@ export default async function NewAdmin(req,res){
         console.log("created admin")
 
       return   res.status(200).json({ admin })
-    }catch(error){
+    }else{
         console.log(error)
         res.json({ error })
     }
