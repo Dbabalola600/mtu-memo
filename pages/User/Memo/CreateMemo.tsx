@@ -97,7 +97,7 @@ export default function CreateMemo() {
                     const data = await res.json() as Data;
 
                     const body2 = {
-                        title: data.title,
+                        title: form.item(0).value,
                         mail: data.mail
                     }
                     const MailRes = await fetch("/api/mail/mail", { method: "POST", body: JSON.stringify(body2) })

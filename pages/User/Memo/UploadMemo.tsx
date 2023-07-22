@@ -8,6 +8,10 @@ import TextInput from "../../../components/inputs/TextInput";
 
 
 
+type Data = {
+    title: string,
+    mail: any
+}
 
 export default function UploadMemo() {
     const [isLoading, setLoading] = useState(false)
@@ -120,9 +124,20 @@ export default function UploadMemo() {
         // console.log(base64String)
 
         const response = await fetch("/api/user/Memo/CreateMemo", { method: "POST", body: JSON.stringify(body) })
-            .then(res => {
+            .then(async res => {
                 if (res.status === 200) {
-                    router.push("/User/Memo/")
+                    const data = await res.json() as Data;
+
+                    const body2 = {
+                        title: form.item(0).value,
+                        mail: data.mail
+                    }
+                    const MailRes = await fetch("/api/mail/mail", { method: "POST", body: JSON.stringify(body2) })
+                        .then(res => {
+                            if (res.status === 200) {
+                                router.push("/User/Memo/")
+                            }
+                        })
                 }
             })
 

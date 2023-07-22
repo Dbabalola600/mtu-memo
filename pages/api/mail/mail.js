@@ -8,6 +8,8 @@ const handler = async (req, res) => {
         const { method } = req;
 
         const { mail, title } = JSON.parse(req.body)
+
+        console.log(title)
         switch (method) {
             case "POST": {
 
@@ -16,11 +18,11 @@ const handler = async (req, res) => {
                 //Do some thing
                 await sendMail(
                     //subject
-                    title,
+                    "New Memo from Mtu",
                     //mail
                     mail,
                     //context
-                    "THI IS A TEST  FOR EMAIL NOTIFICATION3"
+                    title
 
                 );
                 res.status(200).send("Success");
