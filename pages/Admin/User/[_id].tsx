@@ -75,7 +75,7 @@ export default function UserIndi() {
                         Department: {user?.Department}
                     </div>
                     <div>
-                        email:
+                        email: {user?.Email}
                     </div>
                     <div>
                         Role: {user?.role}
