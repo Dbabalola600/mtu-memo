@@ -66,7 +66,28 @@ export default async function NewMemo(req, res) {
 
 
 
-        // console.log(CollegeInbox[0]._id)
+        // get emails
+        let MaxUsersMail = []
+        let CollegeUsersMail= []
+        let DepartmentUsersMail = []
+        let RoleUsersMail = []
+
+
+        for (let i = 0; i < MaxUsers.length; i++) {
+            MaxUsersMail.push(MaxUsers[i].email)
+        }
+        for (let i = 0; i < CollegeUsers.length; i++) {
+            CollegeUsersMail.push(CollegeUsers[i].email)
+        }
+        for (let i = 0; i < DepartmentUsers.length; i++) {
+            DepartmentUsersMail.push(DepartmentUsers[i].email)
+        }
+        for (let i = 0; i < RoleUsers.length; i++) {
+            RoleUsersMail.push(RoleUsers[i].email)
+        }
+
+
+
 
 
         // inbox handler
@@ -100,17 +121,27 @@ export default async function NewMemo(req, res) {
                             for (let i = 0; i < RoleUsers.length; i++) {
                                 const here = await Inbox.findById(RoleInbox[i]._id).updateOne({ unread: [memo._id, ...RoleInbox[i].unread] })
                             }
+                            return({mail:RoleUsersMail})
                         }
 
                     } else {
                         for (let i = 0; i < DepartmentUsers.length; i++) {
                             const here = await Inbox.findById(DepartmentInbox[i]._id).updateOne({ unread: [memo._id, ...DepartmentInbox[i].unread] })
                         }
+
+                        return ({
+                            mail: DepartmentUsersMail
+                        })
                     }
                 } else {
                     for (let i = 0; i < CollegeUsers.length; i++) {
                         const here = await Inbox.findById(CollegeInbox[i]._id).updateOne({ unread: [memo._id, ...CollegeInbox[i].unread] })
                     }
+
+                    return res.json({
+                        title: title,
+                        mail: CollegeUsersMail
+                    })
                     // return res.json(NewInbox)
                 }
                 //end of inbox handlers
@@ -143,17 +174,25 @@ export default async function NewMemo(req, res) {
                             for (let i = 0; i < RoleUsers.length; i++) {
                                 const here = await Inbox.findById(RoleInbox[i]._id).updateOne({ unread: [memo._id, ...RoleInbox[i].unread] })
                             }
+                            return({mail:RoleUsersMail})
                         }
 
                     } else {
                         for (let i = 0; i < DepartmentUsers.length; i++) {
                             const here = await Inbox.findById(DepartmentInbox[i]._id).updateOne({ unread: [memo._id, ...DepartmentInbox[i].unread] })
                         }
+                        return ({
+                            mail: DepartmentUsersMail
+                        })
                     }
                 } else {
                     for (let i = 0; i < CollegeUsers.length; i++) {
                         const here = await Inbox.findById(CollegeInbox[i]._id).updateOne({ unread: [memo._id, ...CollegeInbox[i].unread] })
                     }
+                    return res.json({
+                        tile: title,
+                        mail: CollegeUsersMail
+                    })
                     // return res.json(NewInbox)
                 }
                 //end of inbox handlers

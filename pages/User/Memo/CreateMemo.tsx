@@ -11,9 +11,13 @@ import { useRouter } from "next/router";
 
 
 
-
+type Data = {
+    title: string,
+    mail: any
+}
 export default function CreateMemo() {
     const [isLoading, setLoading] = useState(false)
+    const [data, SetData] = useState<Data | null>(null)
     const router = useRouter()
     const token = getCookie("NormUser")
 
@@ -87,9 +91,21 @@ export default function CreateMemo() {
 
 
         const response = await fetch("/api/user/Memo/CreateMemo", { method: "POST", body: JSON.stringify(body) })
-            .then(res => {
+            .then(async res => {
                 if (res.status === 200) {
-                    router.push("/User/Memo/")
+                    // router.push("/User/Memo/")
+                    const data = await res.json() as Data;
+
+                    const body2 = {
+                        title: data.title,
+                        mail: data.mail
+                    }
+                    const MailRes = await fetch("/api/mail/mail", { method: "POST", body: JSON.stringify(body2) })
+                        .then(res => {
+                            if (res.status === 200) {
+                                router.push("/User/Memo/")
+                            }
+                        })
                 }
             })
 
@@ -147,7 +163,7 @@ export default function CreateMemo() {
                             <div
                                 className="text-sm text-gray-500 font-bold"
                             >
-                                this indicates sending a departmental wide memo 
+                                this indicates sending a departmental wide memo
                             </div>
 
                         </label>
@@ -205,7 +221,7 @@ export default function CreateMemo() {
                             <div
                                 className="text-sm text-gray-500 font-bold"
                             >
-                                this indicates the specific staff recieving the memo 
+                                this indicates the specific staff recieving the memo
                             </div>
                         </label>
                         <select className="select select-primary w-full ">
