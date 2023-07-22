@@ -16,7 +16,7 @@ type User = {
     UserId: string,
     College: string,
     Department: string,
-    Email: string
+    email: string
     role: string,
 }
 
@@ -75,7 +75,7 @@ export default function UserIndi() {
                         Department: {user?.Department}
                     </div>
                     <div>
-                        email: {user?.Email}
+                        email: {user?.email}
                     </div>
                     <div>
                         Role: {user?.role}
