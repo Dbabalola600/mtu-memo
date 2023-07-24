@@ -26,7 +26,7 @@ export default function Raw(props: MyProps) {
             {props.UserId === props.senderId ? (
 
                 <div
-                // className="grid grid-cols-2 space-x-2 mt-5"
+                className=" mb-5"
                 >
                     <NavButton
                         title="Edit"

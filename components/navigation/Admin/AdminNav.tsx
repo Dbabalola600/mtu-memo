@@ -51,11 +51,13 @@ export default function AdminNav() {
                                         className="block h-12 w-auto lg:hidden"
                                         src="/mtulogo.png"
                                         alt="Your Company"
+                                        onClick={()=> router.push("/Admin/DashBoard")}
                                     />
                                     <img
                                         className="hidden h-12 w-auto lg:block"
                                         src="/mtulogo.png"
                                         alt="Your Company"
+                                        onClick={()=> router.push("/Admin/DashBoard")}
                                     />
                                 </div>
 

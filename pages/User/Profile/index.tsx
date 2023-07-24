@@ -17,6 +17,7 @@ type User = {
     College: string,
     Department: string,
     role: string,
+    email: string
 }
 
 
@@ -60,7 +61,7 @@ export default function Profile() {
 
 
                 <div
-                    className="text-black text-3xl font-bold space-y-10"
+                    className="text-black text-3xl font-bold space-y-5"
                 >
                     <div>
                         Name: {user?.firstname} {user?.lastname}
@@ -68,6 +69,22 @@ export default function Profile() {
 
                     <div>
                         UserId: {user?.UserId}
+                    </div>
+                    <div
+                        className="grid lg:grid-cols-2 "
+                    >
+
+                        <div>
+                            Email: {user?.email}
+                        </div>
+
+                        <div>
+                            <NavButton
+                                title="Update Email"
+                                uLink="/User/Profile/UpdateEmail/" />
+                        </div>
+
+
                     </div>
                     <div>
                         College: {user?.College}
@@ -87,6 +104,9 @@ export default function Profile() {
                         uLink="/User/Profile/UpdatePassword/"
                     />
 
+
+
+                  
 
 
                 </div>

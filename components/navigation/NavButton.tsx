@@ -22,7 +22,7 @@ export default function NavButton(props: ButtonProps) {
             href={props.uLink}
         >
 
-            <div className="btn btn-lg btn-primary text-white btn-block  mb-5 text-center ">
+            <div className="btn btn-lg btn-primary text-white btn-block  mb- text-center ">
                 {props.title}
             </div>
         </Link>

@@ -10,6 +10,7 @@ export default function AdminSideBar() {
     };
     const Content = [
         { title: "Dashboard", link: "/Admin/DashBoard" },
+        { title: "Admins", link: "/Admin/admin" },
         { title: "Users", link: "/Admin/User" },
         { title: "Memos", link: "/Admin/Memo/" },
         { title: "Department", link: "/Admin/Memo/Department/" },

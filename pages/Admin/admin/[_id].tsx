@@ -93,7 +93,7 @@ export default function AdminFind() {
 
                     <div className=''>
 
-                        <button className="btn btn-lg bg-red-500 btn-block text-white md:text-3xl  text-5xl  ">
+                        <button className="btn btn-lg bg-red-500 btn-block text-white md:text-3xl  ">
                             DELETE
                         </button>
 

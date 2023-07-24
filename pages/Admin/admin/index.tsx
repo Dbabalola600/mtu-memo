@@ -65,7 +65,7 @@ export default function AllAdmin() {
                     <div className='mx-auto'>
                         <Link
                             href="/Admin/admin/CreateAdmin">
-                            <button className="btn btn-lg btn-primary btn-block text-white md:text-3xl  text-5xl  ">
+                            <button className="btn btn-lg btn-primary btn-block text-white md:text-5xl  ">
                                 New Admin
                             </button>
                         </Link>

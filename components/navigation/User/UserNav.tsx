@@ -56,11 +56,13 @@ export default function UserNav() {
                                         className="block h-12 w-auto lg:hidden"
                                         src="/mtulogo.png"
                                         alt="Your Company"
+                                        onClick={()=> router.push("/User/DashBoard")}
                                     />
                                     <img
                                         className="hidden h-12 w-auto lg:block"
                                         src="/mtulogo.png"
                                         alt="Your Company"
+                                        onClick={()=> router.push("/User/DashBoard")}
                                     />
                                 </div>
 

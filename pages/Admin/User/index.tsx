@@ -40,7 +40,7 @@ export default function Index() {
     return (
         <AdminLayout>
 
-            <div>
+            <>
                 <Header
                     title="Users"
                 />
@@ -61,13 +61,13 @@ export default function Index() {
                     <div className='mx-auto'>
                         <Link
                             href="/Admin/User/CreateUser">
-                            <button className="btn btn-lg btn-primary btn-block text-white md:text-3xl  text-5xl  ">
+                            <button className="btn btn-lg btn-primary btn-block text-white md:text-5xl  ">
                                 New User
                             </button>
                         </Link>
                     </div>
 
-                    
+
                 </div>
 
                 <div className="grid grid-cols-2 lg:grid-cols-2 mt-10 gap-6"
@@ -85,7 +85,7 @@ export default function Index() {
                         role: string,
                     }) =>
                         <div
-                        key={user._id}
+                            key={user._id}
                         >
                             <UserButton
                                 UserId={user.UserId}
@@ -101,7 +101,7 @@ export default function Index() {
 
 
 
-            </div>
+            </>
         </AdminLayout>
     )
 
