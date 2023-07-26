@@ -26,7 +26,7 @@ export default async function GetDepartments(req, res) {
 
         const coolStruct = []
         const results = await Promise.all(cleanStruct.map(async (name) => {
-            const reep = Memo.find({ department: name })
+            const reep = Memo.find({ department: name }).sort({ createdAt: -1 })
 
 
 

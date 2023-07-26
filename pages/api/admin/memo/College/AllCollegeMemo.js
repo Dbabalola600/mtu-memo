@@ -26,7 +26,7 @@ export default async function GetColleges(req, res) {
 
         const coolStruct = []
         const results = await Promise.all(cleanStruct.map(async (name) => {
-            const reep = Memo.find({ college: name })
+            const reep = Memo.find({ college: name }).sort({ createdAt: -1 })
 
 
 

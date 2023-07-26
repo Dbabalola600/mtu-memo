@@ -1,11 +1,34 @@
+import { useRouter } from "next/router"
+import { FormEventHandler } from "react"
 
 
 
 
 export default function SearchBar(){
+    const router = useRouter()
+
+    const search: FormEventHandler<HTMLFormElement> = async (e) => {
+        e.preventDefault()
+
+        const form = e.currentTarget.elements as any
+
+
+
+        const body = {
+            find: form.item(0).value
+
+        }
+
+        router.push(`/User/Memo/find/${form.item(0).value}`)
+    }
+
+
+
+
+
     return(
         <form
-        // onSubmit={search}
+        onSubmit={search}
 
         >
             <div

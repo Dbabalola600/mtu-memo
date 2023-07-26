@@ -13,7 +13,7 @@ export default async function All(req,res) {
 
         // const here = await Promise.all(all)
 
-        return res.status(200).json(all)
+        return res.status(200).json(all).sort({ createdAt: -1 })
 
     } catch (error) {
         console.log(error)

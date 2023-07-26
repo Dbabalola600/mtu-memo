@@ -23,8 +23,6 @@ type ReadMemo = {
     college: string,
     department: string,
     role: string,
-
-
 }
 
 export default function Index() {
