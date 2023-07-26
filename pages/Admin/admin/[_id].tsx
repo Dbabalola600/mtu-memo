@@ -48,6 +48,29 @@ export default function AdminFind() {
 
     }, [])
 
+
+    const del = async (_id: any) => {
+
+        console.log(_id)
+
+
+        const body ={
+            user: _id
+        }
+        const response = await fetch("/api/admin/yeetAdmin", { method: "POST", body: JSON.stringify(body) })
+            .then(res => {
+                if (res.status === 200) {
+                    router.push("/Admin/admin")
+                }
+            })
+
+
+
+    }
+
+
+
+
     return (
         <AdminLayout>
             <>
@@ -62,7 +85,7 @@ export default function AdminFind() {
                     <div>
                         UserId: {user?.AdminId}
                     </div>
-                   
+
                     <div>
                         email: {user?.email}
                     </div>
@@ -93,7 +116,9 @@ export default function AdminFind() {
 
                     <div className=''>
 
-                        <button className="btn btn-lg bg-red-500 btn-block text-white md:text-3xl  ">
+                        <button
+                            onClick={() => del(user?._id)}
+                            className="btn btn-lg bg-red-500 btn-block text-white md:text-3xl  ">
                             DELETE
                         </button>
 

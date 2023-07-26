@@ -8,6 +8,7 @@ import { getCookie } from "cookies-next";
 import CollapseRead from "../../Utils/CollapseRead";
 import AllUnread from "../../Utils/AllUnread";
 import AllRead from "../../Utils/AllRead";
+import SearchBar from "../../Utils/SearchBar";
 
 
 
@@ -83,10 +84,15 @@ export default function Index() {
 
 
                 </div>
-
+                
+                <div
+                    className="w-full mt-10"
+                >
+                    {/* <SearchBar /> */}
+                </div>
 
                 <div
-                    className="mt-10"
+                    className="mt-1"
                 >
 
                     <MemoBar

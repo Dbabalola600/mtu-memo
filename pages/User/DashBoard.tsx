@@ -6,6 +6,7 @@ import { getCookie } from "cookies-next";
 import MemoBar from "../../components/navigation/User/MemoBar";
 import AllUnread from "../Utils/AllUnread";
 import UserDash from "../../components/shared/UserDash";
+import SearchBar from "../Utils/SearchBar";
 
 
 
@@ -65,7 +66,7 @@ export default function DashBoard() {
     }, [])
 
 
-   
+
     return (
         <LoggedLayout>
             <>
@@ -89,6 +90,8 @@ export default function DashBoard() {
                     className=""
                 // className="grid grid-flow-col overflow-x-scroll mt-10 p-5   gap-5  "
                 >
+
+                  
                     <MemoBar
 
                         allLink={"/"}
