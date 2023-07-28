@@ -9,11 +9,11 @@ export default async function All(req,res) {
         console.log('CONNECTED TO MONGO');
 
 
-        const all =  await Memo.find()
+        const all =  await Memo.find().sort({ createdAt: -1 })
 
         // const here = await Promise.all(all)
 
-        return res.status(200).json(all).sort({ createdAt: -1 })
+        return res.status(200).json(all)
 
     } catch (error) {
         console.log(error)
