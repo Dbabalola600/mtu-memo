@@ -82,10 +82,11 @@ export default function CreateMemo() {
             user: token,
             type: "Raw",
             title: form.item(0).value,
-            content: form.item(1).value,
-            department: form.item(2).value,
-            college: form.item(3).value,
-            role: form.item(4).value
+            refNo: form.item(1).value,
+            content: form.item(2).value,
+            department: form.item(3).value,
+            college: form.item(4).value,
+            role: form.item(5).value
         }
 
 
@@ -142,6 +143,14 @@ export default function CreateMemo() {
                         />
                     </div>
 
+                    <div className="mx-auto  w-full ">
+                        <TextInput
+                            placeholder="RefNo"
+                            name="RefNo"
+                            type='text'
+
+                        />
+                    </div>
 
 
 

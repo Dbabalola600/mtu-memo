@@ -19,6 +19,7 @@ type Memo = {
         college: string,
         department: string,
         role: string,
+        refNo: string
     }
     User: {
         _id: string,
@@ -82,6 +83,7 @@ export default function ExactMemo() {
                         sender={memo.Memo.sen}
                         senderId={memo.Memo.user}
                         title={memo.Memo.title}
+                        refNo={memo.Memo.refNo}
                     />
 
 

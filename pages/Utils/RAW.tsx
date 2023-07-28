@@ -14,6 +14,7 @@ type MyProps = {
     UserId: string | any
     senderId: any
     memId: any
+    refNo: string
     UserRole: string
     UserDepartment: string
 }
@@ -104,11 +105,11 @@ export default function Raw(props: MyProps) {
                     >
                         From: {props.sender}
 
-                        {/* <div
+                        <div
                         className="mt-14"
                     >
-                        ref
-                    </div> */}
+                        Ref: {props.refNo}
+                    </div>
                     </div>
 
                     <div

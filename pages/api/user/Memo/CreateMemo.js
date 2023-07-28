@@ -13,7 +13,7 @@ export default async function NewMemo(req, res) {
         console.log('CONNECTED TO MONGO');
 
 
-        const { user, type, title, content, sen, college, department, role } = JSON.parse(req.body)
+        const { user, type, title, content, sen, college, department, role, refNo } = JSON.parse(req.body)
 
 
         //person sending the memo
@@ -104,6 +104,7 @@ export default async function NewMemo(req, res) {
                 user: user,
                 date: ShortDate,
                 sen: person.firstname + " " + person.lastname,
+                refNo:refNo,
                 college: college,
                 department: department,
                 role: role,
@@ -156,6 +157,7 @@ export default async function NewMemo(req, res) {
                 user: user,
                 date: ShortDate,
                 sen: person.firstname + " " + person.lastname,
+                refNo:refNo,
                 college: college,
                 department: department,
                 role: role,
