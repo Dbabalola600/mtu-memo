@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Header from "../../../../components/shared/Header";
-
+import Image from "next/image"
+import Empty_Memo from "../../../../public/Empty_Memo.svg"
 
 type Memo = {
     _id: String,
@@ -56,67 +57,99 @@ export default function Found() {
                     title={`Result for ${ssd.find}`}
 
                 />
-                <div
-                    className=" mt-5 border-black "
-                >
+                {memos.length > 0 ? (
 
-                    {memos?.map((
-                        memo: {
-                            _id: String,
-                            user: string,
-                            type: string,
-                            title: string,
-                            content: string,
-                            date: string,
-                            sen: string,
-                            college: string,
-                            department: string,
-                            role: string,
+                    <div
+                        className=" mt-5 border-black "
+                    >
 
-
-                        }
-                    ) => (
+                        {memos?.map((
+                            memo: {
+                                _id: String,
+                                user: string,
+                                type: string,
+                                title: string,
+                                content: string,
+                                date: string,
+                                sen: string,
+                                college: string,
+                                department: string,
+                                role: string,
 
 
-                        <div
-                            key={memo.user}
-                            className="  text-black border-2 border-primary mt-5 mx-2 my-5">
+                            }
+                        ) => (
 
 
-                            <Link
-                                href={`/Admin/Memo/${memo._id}`}
+                            <div
+                                key={memo.user}
+                                className="  text-black border-2 border-primary mt-5 mx-2 my-5">
 
-                            >
-                                <div
-                                    className="mx-2 grid grid-cols-2  gap-x-5 my-3 cursor-pointer  text-lg"
+
+                                <Link
+                                    href={`/Admin/Memo/${memo._id}`}
+
                                 >
-                                    <div>
-                                        Title:  {memo.title}
-                                    </div>
-
-
                                     <div
-                                        className="text-right "
+                                        className="mx-2 grid grid-cols-2  gap-x-5 my-3 cursor-pointer  text-lg"
                                     >
-                                        Date:{memo.date}
+                                        <div>
+                                            Title:  {memo.title}
+                                        </div>
+
+
+                                        <div
+                                            className="text-right "
+                                        >
+                                            Date:{memo.date}
+                                        </div>
+
+
+                                        <div className="btn btn-primary btn-sm mt-5 text-white"
+                                        // onClick={props.clickButton}
+                                        >
+                                            show more
+                                        </div>
+
+
+
                                     </div>
+                                </Link>
+                            </div>
+                        ))}
+
+                    </div>
 
 
-                                    <div className="btn btn-primary btn-sm mt-5 text-white"
-                                    // onClick={props.clickButton}
-                                    >
-                                        show more
-                                    </div>
 
 
 
-                                </div>
-                            </Link>
+                ) : (
+
+
+                    <div
+                        className=" flex justify-center mt-5 grid-cols-1  "
+                    >
+                        <div
+                            className="text-centre  space-y-5"
+                        >
+                            <Header
+                                title={''}
+                                desc=" no results"
+                            />
+                            < Image
+                                src={Empty_Memo}
+                                // width={400}
+                                // height={300}
+                                className='rounded-sm   flex justify-center'
+                            />
+
                         </div>
-                    ))}
 
-                </div>
+                       
 
+                    </div>
+                )}
 
             </>
         </AdminLayout>
