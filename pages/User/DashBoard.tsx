@@ -6,7 +6,7 @@ import { getCookie } from "cookies-next";
 import MemoBar from "../../components/navigation/User/MemoBar";
 import AllUnread from "../Utils/AllUnread";
 import UserDash from "../../components/shared/UserDash";
-import SearchBar from "../Utils/SearchBar";
+import SearchBar from "../Utils/Search/SearchBar";
 
 
 

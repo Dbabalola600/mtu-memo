@@ -8,7 +8,7 @@ import { getCookie } from "cookies-next";
 import CollapseRead from "../../Utils/CollapseRead";
 import AllUnread from "../../Utils/AllUnread";
 import AllRead from "../../Utils/AllRead";
-import SearchBar from "../../Utils/SearchBar";
+import SearchBar from "../../Utils/Search/SearchBar";
 
 
 

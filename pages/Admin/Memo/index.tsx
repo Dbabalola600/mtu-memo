@@ -4,6 +4,7 @@ import Header from "../../../components/shared/Header";
 import useSWR from "swr";
 import ALL from "../../Utils/AllMemo";
 import { useRouter } from "next/router";
+import AdminSearchBar from "../../Utils/Search/AdminSearchBar";
 
 
 type Memo = {
@@ -53,6 +54,15 @@ export default function Memo() {
                 <Header
                     title="All Memos"
                 />
+
+
+
+
+                <div
+                    className="w-full mt-10"
+                >
+                  <AdminSearchBar/>
+                </div>
 
 
                 <div

@@ -1,10 +1,9 @@
-import { getCookie } from "cookies-next"
-
-import Link from "next/link"
-import { useEffect, useState } from "react"
-import Image from "next/image"
-import Empty_Memo from "../../public/Empty_Memo.svg"
-import useSWR from "swr"
+import { getCookie } from "cookies-next";
+import AdminLayout from "../../../../components/Layouts/admin/AdminLayout";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Header from "../../../../components/shared/Header";
 
 
 type Memo = {
@@ -18,25 +17,26 @@ type Memo = {
     college: string,
     department: string,
     role: string,
-
-
 }
 
-const fetcher = (url: RequestInfo | URL) => fetch(url).then((res) => res.json());
 
 
 
-export default function ALL() {
+export default function Found() {
 
     const [memos, SetMemo] = useState<Memo[]>([])
+    const router = useRouter()
+    let ssd = router.query
 
 
     const showinfo = async () => {
+        const body = {
+            find: ssd.find
+        }
 
-
-
-        const response = await fetch("/api/admin/memo/getAll")
+        const response = await fetch("/api/admin/memo/SearchMemo", { method: "POST", body: JSON.stringify(body) })
             .then(res => res.json()) as Memo[]
+
 
         SetMemo(response)
 
@@ -44,26 +44,18 @@ export default function ALL() {
 
     useEffect(() => {
         showinfo()
+    }, []
+    )
 
-    }, [])
+
     return (
-        <div className=" mt-5">
+        <AdminLayout>
+            <>
 
+                <Header
+                    title={`Result for ${ssd.find}`}
 
-            <div
-                className="text-primary text-3xl font-bold"
-            >
-
-                All [{memos.length}]
-                <hr
-                    className="w-4/12 bg-primary h-2 mt-3"
-                >
-                </hr>
-            </div>
-
-
-            {memos.length > 0 ? (
-
+                />
                 <div
                     className=" mt-5 border-black "
                 >
@@ -126,26 +118,7 @@ export default function ALL() {
                 </div>
 
 
-
-
-
-            ) : (
-                <div
-                    className=" flex justify-center mt-5 grid-cols-1  "
-                >
-
-
-                    <Image
-                        src={Empty_Memo}
-                        // width={400}
-                        // height={300}
-                        className='rounded-sm   flex justify-center'
-                    />
-
-                </div>
-            )}
-
-
-        </div>
+            </>
+        </AdminLayout>
     )
 }
