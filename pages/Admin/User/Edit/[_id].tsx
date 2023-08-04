@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { FormEventHandler, useEffect, useState } from "react"
 import AdminLayout from "../../../../components/Layouts/admin/AdminLayout"
 import TextInputAlt from "../../../../components/inputs/TextInputAlt"
 import Header from "../../../../components/shared/Header"
@@ -78,10 +78,13 @@ export default function EditUser() {
     const [isLoading, setLoading] = useState(false)
     const router = useRouter()
     const [user, setUser] = useState<User | null>(null)
+    let ssd = router.query
+
+
+
     const showinfo = async () => {
 
 
-        let ssd = router.query
         const body = {
             _id: ssd._id
         }
@@ -104,6 +107,129 @@ export default function EditUser() {
 
     }, [])
 
+
+    const runAll: FormEventHandler<HTMLFormElement> = async (e) => {
+        e.preventDefault()
+        setLoading(true)
+
+
+        const formElements = e.currentTarget.elements as typeof e.currentTarget.elements
+
+        const form = e.currentTarget.elements as any
+
+
+
+        const body = {
+            id: ssd._id,
+            fname: form.item(0).value,
+            lname: form.item(1).value,
+            Uid: form.item(2).value,
+            department: form.item(3).value,
+            college: form.item(4).value,
+            role: form.item(5).value
+        }
+
+
+        //fname 
+        const fnameresponse = await fetch("/api/admin/user/update/upFname", { method: "POST", body: JSON.stringify(body) })
+            .then(res => {
+                if (res.status == 200) {
+                    console.log("yuppers")
+                    // router.push("/seller/Products/")
+                }
+                if (res.status == 290) {
+                    console.log("skipped")
+                }
+            }).catch(err => {
+                console.log(err)
+            })
+
+
+        //lname 
+        const lnameresponse = await fetch("/api/admin/user/update/upLname", { method: "POST", body: JSON.stringify(body) })
+            .then(res => {
+                if (res.status == 200) {
+                    console.log("yuppers")
+                    // router.push("/seller/Products/")
+                }
+                if (res.status == 290) {
+                    console.log("skipped")
+                }
+            }).catch(err => {
+                console.log(err)
+            })
+
+        //uid 
+        const idresponse = await fetch("/api/admin/user/update/upUid", { method: "POST", body: JSON.stringify(body) })
+            .then(res => {
+                if (res.status == 200) {
+                    console.log("yuppers")
+                    // router.push("/seller/Products/")
+                }
+                if (res.status == 290) {
+                    console.log("skipped")
+                }
+            }).catch(err => {
+                console.log(err)
+            })
+
+        //department 
+        const Departresponse = await fetch("/api/admin/user/update/upDepart", { method: "POST", body: JSON.stringify(body) })
+            .then(res => {
+                if (res.status == 200) {
+                    console.log("yuppers")
+                    // router.push("/seller/Products/")
+                }
+                if (res.status == 290) {
+                    console.log("skipped")
+                }
+            }).catch(err => {
+                console.log(err)
+            })
+
+
+
+
+        //college
+        const colegeresponse = await fetch("/api/admin/user/update/upCollege", { method: "POST", body: JSON.stringify(body) })
+            .then(res => {
+                if (res.status == 200) {
+                    console.log("yuppers")
+                    // router.push("/seller/Products/")
+                }
+                if (res.status == 290) {
+                    console.log("skipped")
+                }
+            }).catch(err => {
+                console.log(err)
+            })
+
+
+        //role
+        const roleresponse = await fetch("/api/admin/user/update/upRole", { method: "POST", body: JSON.stringify(body) })
+            .then(res => {
+                if (res.status == 200) {
+                    // console.log("yuppers")
+                    router.push("/Admin/User/")
+                }
+                if (res.status == 290) {
+                    console.log("skipped")
+                }
+            }).catch(err => {
+                console.log(err)
+            })
+
+
+
+
+
+    }
+
+
+
+
+
+
     return (
         <AdminLayout>
             <div>
@@ -119,7 +245,7 @@ export default function EditUser() {
 
                 <form
                     autoSave={"off"}
-                    // onSubmit={runAll}
+                    onSubmit={runAll}
 
 
                     autoComplete={"off"}
@@ -173,8 +299,8 @@ export default function EditUser() {
 
                             </label>
                             <select className="select select-primary w-full ">
-                            <option disabled selected>{user?.Department}</option>
-                              
+                                <option defaultValue={user?.Department} >{user?.Department}</option>
+
 
                                 {Department.map((depart, index) => (
                                     <option
@@ -198,8 +324,8 @@ export default function EditUser() {
 
                             </label>
                             <select className="select select-primary w-full ">
-                            <option disabled selected>{user?.College}</option>
-                              
+                                <option disabled selected>{user?.College}</option>
+
 
                                 {College.map((coll, index) => (
                                     <option

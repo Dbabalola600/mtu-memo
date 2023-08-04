@@ -1,0 +1,113 @@
+import { getCookie } from "cookies-next"
+import { useRouter } from "next/router"
+import { FormEventHandler, useState } from "react"
+import AdminLayout from "../../../components/Layouts/admin/AdminLayout"
+import TextInput from "../../../components/inputs/TextInput"
+import ErrMess from "../../../components/shared/notify/ErrMess"
+import Header from "../../../components/shared/Header"
+
+
+
+
+export default function UpdatePassword() {
+    const token = getCookie("AdminUser")
+    const [isLoading, setLoading] = useState(false)
+    const router = useRouter()
+    const [showtoast, settoast] = useState({ message: "", show: false })
+
+
+
+
+    const update: FormEventHandler<HTMLFormElement> = async (e) => {
+        e.preventDefault()
+        setLoading(true)
+
+
+        const form = e.currentTarget.elements as any
+
+
+
+
+
+        const body = {
+            id: token,
+            o_pass: form.item(0).value,
+            n_pass: form.item(1).value
+        }
+
+        const response = await fetch("/api/admin/Profile/updatePassword", { method: "POST", body: JSON.stringify(body) })
+            .then(res => {
+                if (res.status == 200) {
+                    router.push("/Admin/Profile/")
+                } if (res.status === 401) {
+                    settoast({ message: " message", show: true })
+
+                }
+            }).catch(err => {
+                console.log(err)
+            })
+
+
+
+
+
+
+        setLoading(false)
+    }
+
+
+
+
+
+    return (
+        <AdminLayout>
+            <>
+
+                <Header
+                    title="Update Password"
+                />
+                <form
+                    onSubmit={update}
+                    className="w-full py-20 space-y-12  text-black text-base md:text-xl"
+                >
+
+
+                    {showtoast.show && <ErrMess title="invalid  password" />}
+
+                    <div className="mx-auto  w-full ">
+                        <TextInput
+                            placeholder="*********"
+                            name="Current Password"
+                            type='text'
+
+                        />
+                    </div>
+
+                    <div className="mx-auto  w-full ">
+                        <TextInput
+                            placeholder="*********"
+                            name="New Password"
+                            type='text'
+
+                        />
+                    </div>
+
+
+                    <div className=" w-full  space-y-6">
+
+                        <button className="w-full btn-primary btn "
+                            type="submit">
+                            {isLoading ? "Loading..." : "Proceed"}
+
+                        </button>
+
+
+
+                    </div>
+
+                </form>
+
+            </>
+        </AdminLayout>
+    )
+}

@@ -53,6 +53,30 @@ export default function UserIndi() {
         showinfo()
 
     }, [])
+
+
+
+
+
+    // const del = async (_id: any) => {
+
+    //     console.log(_id)
+
+
+    //     const body = {
+    //         user: _id
+    //     }
+    //     const response = await fetch("/api/admin/user/DelUser", { method: "POST", body: JSON.stringify(body) })
+    //         .then(res => {
+    //             if (res.status === 200) {
+    //                 router.push("/Admin/User")
+    //             }
+    //         })
+
+
+
+    // }
+
     return (
         <AdminLayout>
             <div>
@@ -90,7 +114,7 @@ export default function UserIndi() {
 
 
 
-                <div className="grid grid-cols-2 space-x-10 pt-10">
+                <div className="grid grid-cols-1 space-x-10 pt-10">
 
                     <div className=''>
                         <NavButton
@@ -102,13 +126,15 @@ export default function UserIndi() {
 
 
 
-                    <div className=''>
+                    {/* <div className=''>
 
-                        <button className="btn btn-lg bg-red-500 btn-block text-white md:text-3xl  text-5xl  ">
+                        <button
+                            onClick={() => del(user?._id)}
+                            className="btn btn-lg bg-red-500 btn-block text-white md:text-3xl  ">
                             DELETE
                         </button>
 
-                    </div>
+                    </div> */}
 
 
                 </div>

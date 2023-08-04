@@ -127,7 +127,7 @@ export default function EditAdmin() {
                         // onClick={() => runall()}
 
                         >
-                            {/* {isLoading ? "Loading..." : "UPDATE"} */}
+                            {isLoading ? "Loading..." : "UPDATE"}
 
                         </button>
 
