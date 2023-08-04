@@ -253,7 +253,7 @@ export default function EditUser() {
                         // onClick={() => runall()}
 
                         >
-                            {/* {isLoading ? "Loading..." : "UPDATE"} */}
+                            {isLoading ? "Loading..." : "UPDATE"}
 
                         </button>
 
