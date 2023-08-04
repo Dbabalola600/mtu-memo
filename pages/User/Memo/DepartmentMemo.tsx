@@ -45,7 +45,7 @@ export default function DepartmentMemo() {
                         className=" ">
                         <div
                             className="text-center text-primaryColour font-bold mx-auto md:text-7xl text-5xl">
-                            Deparments  Memo
+                            Department  Memo
                         </div>
                     </div>
 
